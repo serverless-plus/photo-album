@@ -4,3 +4,4 @@ jest.config.js
 sls.js
 src/public
 copyStaticAssets.ts
+client

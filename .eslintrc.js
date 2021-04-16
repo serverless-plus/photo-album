@@ -49,7 +49,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-explicit-any': 'warn',
-    "@typescript-eslint/ban-ts-comment": 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'no-alert': 'error',
     'no-console': 'off',
     'no-const-assign': 'error',

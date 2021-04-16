@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { apis } from '../utils/capi';
 
-export const token = async (req: Request, res: Response) => {
+export const token = async (req: Request, res: Response): Promise<void> => {
   const { uuid } = req.body;
   const result = await apis.getCosTmpCredential(uuid);
   if (result.Error) {

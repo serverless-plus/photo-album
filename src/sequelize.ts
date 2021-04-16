@@ -10,10 +10,6 @@ async function syncTables(sequelize: Sequelize) {
   await sequelize.sync({ force: false, hooks: true });
 }
 
-async function initTestData(): Promise<void> {
-
-}
-
 async function initDatabase(): Promise<void> {
   try {
     const database = process.env.DB_NAME;
@@ -56,8 +52,6 @@ async function initDatabase(): Promise<void> {
 
       await syncTables(sequelize);
     }
-
-    await initTestData();
   } catch (e) {
     console.log(e);
   }

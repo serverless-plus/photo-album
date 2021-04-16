@@ -4,8 +4,8 @@ interface ImageAttributes {
   id: number;
   uid: string;
   url: string;
-  labels: string
-  description?: string | null
+  labels: string;
+  description?: string | null;
 }
 
 type ImageCreationAttributes = Optional<ImageAttributes, 'id'>;

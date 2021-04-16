@@ -20,6 +20,14 @@ Serverless 相册应用
 - [x] [Jest](https://github.com/facebook/jest)
 - [x] [semantic-release](https://github.com/semantic-release/semantic-release)
 
+### 使用的云端服务
+
+- [x] [对象存储](https://console.cloud.tencent.com/cos)
+- [x] [云函数](https://console.cloud.tencent.com/scf)
+- [x] [API 网关](https://console.cloud.tencent.com/apigateway)
+- [x] [Serverless MYSQL 数据库](https://console.cloud.tencent.com/cynosdb)
+- [x] [图像识别](https://console.cloud.tencent.com/tiia/detectlabel)
+
 ## 目录介绍
 
 ```
@@ -36,14 +44,6 @@ Serverless 相册应用
 ├── tsconfig.json           // Typescript 配置
 └── vpc                     // Serverless vpc 组件配置
 ```
-
-### 使用的云端资源
-
-- [x] [对象存储](https://console.cloud.tencent.com/cos)
-- [x] [云函数](https://console.cloud.tencent.com/scf)
-- [x] [API 网关](https://console.cloud.tencent.com/apigateway)
-- [x] [Serverless MYSQL 数据库](https://console.cloud.tencent.com/cynosdb)
-- [x] [图像识别](https://console.cloud.tencent.com/tiia/detectlabel)
 
 ## 使用
 

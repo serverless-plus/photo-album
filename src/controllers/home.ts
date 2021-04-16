@@ -9,4 +9,3 @@ export const index = (req: Request, res: Response) => {
     version: '1.0',
   });
 };
-
