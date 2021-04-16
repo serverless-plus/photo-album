@@ -1,0 +1,73 @@
+org: slsplus
+app: photo-album
+stage: dev
+component: express
+name: photo-album-server
+
+inputs:
+  functionName: ${name}
+  region: ${env:REGION}
+  runtime: Nodejs12.16
+  src:
+    src: ./dist
+    include:
+      - .env
+    exclude:
+      - '.git/**'
+      - 'docs/**'
+      - '__tests__/**'
+      - 'typings/**'
+      - '.github/**'
+      - 'node_modules/**'
+      - 'cos/**'
+      - 'db/**'
+      - 'layer/**'
+      - 'vpc/**'
+  layers:
+    - name: ${output:${stage}:${app}:${app}-layer.name}
+      version: ${output:${stage}:${app}:${app}-layer.version}
+  functionConf:
+    timeout: 120
+    vpcConfig:
+      vpcId: ${output:${stage}:${app}:${app}-vpc.vpcId}
+      subnetId: ${output:${stage}:${app}:${app}-vpc.subnetId}
+    environment:
+      variables:
+        NODE_ENV: production
+        REGION: ${env:REGION}
+        TENCENT_APP_ID: ${env:TENCENT_APP_ID}
+        TENCENT_SECRET_ID: ${env:TENCENT_SECRET_ID}
+        TENCENT_SECRET_KEY: ${env:TENCENT_SECRET_KEY}
+        BUCKET: ${env:BUCKET}
+        DB_NAME: photo-album
+        DB_USER: root
+        DB_PASSWORD: ${output:${stage}:${app}:${app}-db.adminPassword}
+        DB_HOST: ${output:${stage}:${app}:${app}-db.connection.ip}
+        DB_PORT: ${output:${stage}:${app}:${app}-db.connection.port}
+  apigatewayConf:
+    serviceName: photo_album
+    serviceTimeout: 120
+    protocols:
+      - http
+      - https
+    function:
+      functionQualifier: $DEFAULT
+    # if you want to config custom domains for Tencent Cloud API Gateway, just config as below.
+    # Because I using my own generic domain ssl, so configured with Nginx server.
+    # customDomains:
+    #   - domain: url.sls.plus
+    #     certificateId: iuenkIk
+    #     isDefaultMapping: false
+    #     pathMappingSet:
+    #       - path: /
+    #         environment: release
+    #     protocols:
+    #       - https
+    #   - domain: u.sls.plus
+    #     certificateId: Dlkdjkl
+    #     isDefaultMapping: false
+    #     pathMappingSet:
+    #       - path: /
+    #         environment: release
+    #     protocols:
+    #       - https

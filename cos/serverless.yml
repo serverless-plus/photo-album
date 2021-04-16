@@ -1,0 +1,23 @@
+org: slsplus
+app: photo-album
+stage: dev
+
+component: cos
+name: photo-album-cos
+
+inputs:
+  bucket: ${env:BUCKET}
+  region: ${env:REGION}
+  protocol: https
+  acl:
+    permissions: public-read
+  cors:
+    - maxAgeSeconds: 0
+      allowedMethods:
+        - PUT
+      allowedOrigins:
+        - '*'
+      allowedHeaders:
+        - '*'
+      exposeHeaders:
+        - ''

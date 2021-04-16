@@ -1,0 +1,21 @@
+org: slsplus
+app: photo-album
+stage: dev
+
+component: website
+name: photo-album-client
+
+inputs:
+  region: ${env:REGION}
+  bucketName: photo-album-client
+  protocol: https
+  src:
+    src: ./
+    hook: npm run build:h5
+    dist: ./dist
+    envPath: ./
+    index: index.html
+    error: index.html
+  env:
+    # get api url after below api service deployed.
+    apiUrl: ${output:${stage}:${app}:${app}-server.apigw.url}

@@ -1,0 +1,12 @@
+org: slsplus
+app: photo-album
+stage: dev
+
+component: vpc
+name: photo-album-vpc
+
+inputs:
+  region: ${env:REGION}
+  zone: ${env:ZONE}
+  vpcName: ${name}
+  subnetName: ${name}
