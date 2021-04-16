@@ -52,22 +52,3 @@ inputs:
       - https
     function:
       functionQualifier: $DEFAULT
-    # if you want to config custom domains for Tencent Cloud API Gateway, just config as below.
-    # Because I using my own generic domain ssl, so configured with Nginx server.
-    # customDomains:
-    #   - domain: url.sls.plus
-    #     certificateId: iuenkIk
-    #     isDefaultMapping: false
-    #     pathMappingSet:
-    #       - path: /
-    #         environment: release
-    #     protocols:
-    #       - https
-    #   - domain: u.sls.plus
-    #     certificateId: Dlkdjkl
-    #     isDefaultMapping: false
-    #     pathMappingSet:
-    #       - path: /
-    #         environment: release
-    #     protocols:
-    #       - https

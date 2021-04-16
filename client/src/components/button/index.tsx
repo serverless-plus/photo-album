@@ -5,7 +5,9 @@ import './index.less';
 
 export default function Button({ loading = false, onClick, icon, className, ...rest }) {
   return (
-    <AtFab className={`submit-button ${className || ''}`} onClick={onClick} size="normal" {...rest}>
+    <AtFab className={`submit-button ${className || ''} ${loading && 'at-button--disabled'}`} onClick={() => {
+      !loading && onClick()
+    }} size="normal" {...rest}>
       {loading ? (
         <Text className="loading at-fab__icon at-icon at-icon-loading-3"></Text>
       ) : (

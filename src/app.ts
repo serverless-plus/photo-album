@@ -22,4 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 // Define Routes
 app.use(router);
 
+app.binaryTypes = ['*/*'];
+
 export { app };

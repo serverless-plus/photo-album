@@ -5,7 +5,7 @@
 [![Build Status](https://github.com/serverless-plus/photo-album/workflows/Validate/badge.svg?branch=master)](https://github.com/serverless-plus/photo-album/actions?query=workflow:Validate+branch:master)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-Serverless 相册应用
+Serverless 相册应用，**上传照片可以智能识别，添加属性标签**。
 
 ## 功能
 
@@ -44,6 +44,13 @@ Serverless 相册应用
 ├── tsconfig.json           // Typescript 配置
 └── vpc                     // Serverless vpc 组件配置
 ```
+
+## 演示
+
+<center>
+<img src="./demo/index.png" width="360">
+<img src="./demo/upload.png" width="360">
+</center>
 
 ## 使用
 
