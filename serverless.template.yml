@@ -1,0 +1,25 @@
+name: photo-album
+author: slsplus
+org: Serverless Plus
+description: Deploy photo album application
+description-i18n:
+  zh-cn: 快速部署一个相册应用, Taro + Taro UI + Express + MySQL
+keywords: serverless, express, website, fullstack, mysql, taro
+repo: https://github.com/serverless-plus/photo-album
+readme: https://github.com/serverless-plus/photo-album/tree/master/README.md
+license: MIT
+src:
+  src: ./
+  exclude:
+    - .env
+    - serverless.yml
+    - '.git/**'
+    - 'demo/**'
+    - 'node_modules/**'
+    - '**/node_modules'
+    - 'dist/**'
+    - '**/dist/**'
+    - 'package-lock.json'
+    - 'yarn.lock'
+  include:
+    - .env.example

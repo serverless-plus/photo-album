@@ -1,13 +1,13 @@
 import React from "react";
-import { View, Image } from "@tarojs/components";
+import { View } from "@tarojs/components";
 
 
 import './index.less'
 
-export default function NoImage() {
+export default function NoImage({ loading = false }) {
   return (
     <View className='no-image'>
-      暂无数据
+      {loading ? '加载中...' : '暂无数据'}
     </View>
   );
 }

@@ -18,6 +18,7 @@ export default function Index() {
   const [page, setPage] = useState(1);
   const [uid] = useLocalStorage('uuid');
   const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   function gotoUpload() {
     navigateTo({
@@ -32,8 +33,10 @@ export default function Index() {
   }
 
   async function getList(uid, page) {
+    setLoading(true);
     const res = await getImageList(uid as string, page);
     setList(res);
+    setLoading(false);
   }
 
   useDidShow(() => {
@@ -43,7 +46,7 @@ export default function Index() {
   return (
     <View className="index">
       {/* <AvatarBox imageTotal={list.length} /> */}
-      {list.length > 0 ? <ImageList list={list} onClick={onImageClick} /> : <NoImage />}
+      {list.length > 0 ? <ImageList list={list} onClick={onImageClick} /> : <NoImage loading={loading}/>}
 
       <BaseButton className='add-button' loading={false} onClick={gotoUpload} icon='add'/>
     </View>

@@ -18,6 +18,9 @@ router.post('/token', AuthController.token);
 // 获取图片 OCR 识别
 router.post('/image/ocr', ImageController.ocr);
 
+// 获取图片 标签 识别
+router.post('/image/label', ImageController.label);
+
 // 存储图片
 router.post('/image/upload', ImageController.upload);
 

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import { AtImagePicker, AtMessage } from 'taro-ui';
-import { useLocalStorage } from 'react-use';
+import { AtImagePicker, AtMessage, AtNoticebar } from 'taro-ui';
+import { useMount, useLocalStorage } from 'react-use';
 
 import './index.less';
 
@@ -10,6 +10,8 @@ import BaseButton from '../../components/button';
 import BackButton from '../../components/back-button';
 
 import { uploadToCos, uploadImages } from '../../apis';
+
+const MAX_SIZE = 5 * 1024 * 1024;
 
 export default function Index() {
   const [images, setImages] = useState([]);
@@ -31,6 +33,39 @@ export default function Index() {
     console.log(index, file);
   }
 
+  function checkFileSize() {
+    const largeFileIndexs = []
+    images.forEach((item, index) => {
+      if (item.file.size > MAX_SIZE) {
+        largeFileIndexs.push(index)
+      }
+    })
+
+    const imgElements = document.querySelectorAll('taro-image-core')
+
+    // 清楚动效类
+    setTimeout(() => {
+      imgElements.forEach((item) => {
+        item.classList.remove('select-error')
+      })
+    }, 1500)
+
+    if (largeFileIndexs.length > 0) {
+      Taro.atMessage({
+        type: 'warning',
+        message: '支持图片最大为 5M',
+      });
+      // add error status
+      imgElements.forEach((item, index) => {
+        if (largeFileIndexs.indexOf(index) !== -1) {
+          item.classList.add('select-error')
+        }
+      })
+      return false
+    }
+    return true
+  }
+
   async function submitImages() {
     if (images.length === 0) {
       Taro.atMessage({
@@ -39,14 +74,19 @@ export default function Index() {
       });
       return;
     }
+    if (!checkFileSize()) {
+      return;
+    }
     setLoading(true);
     try {
       const imageUrls = [];
-      for (let i = 0; i < images.length; i++) {
-        const file = images[i].file.originalFileObj;
 
-        const res = await uploadToCos(uid, file);
-        console.log('res', res);
+      for (let i = 0; i < images.length; i++) {
+        const file = images[i].file
+
+        const fileObj = file.originalFileObj;
+
+        const res = await uploadToCos(uid, fileObj);
         imageUrls.push(res);
       }
 
@@ -69,8 +109,12 @@ export default function Index() {
   return (
     <View className="upload-page">
       <AtMessage />
+
+      <AtNoticebar icon='volume-plus'>所选图片最大支持 5M</AtNoticebar>
+
       <AtImagePicker
         multiple
+        className='image-picker'
         files={images}
         onChange={onSelectChange}
         onFail={onSelectFail}

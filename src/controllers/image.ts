@@ -24,6 +24,22 @@ export const ocr = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
+export const label = async (req: Request, res: Response): Promise<void> => {
+  const { imgUrl } = req.body;
+  const result = await apis.getImageLabel(imgUrl);
+  if (result.Error) {
+    res.send({
+      success: false,
+      error: result.Error,
+    });
+  } else {
+    res.send({
+      success: true,
+      data: result,
+    });
+  }
+};
+
 export const upload = async (req: Request, res: Response): Promise<void> => {
   const { images = [], uid } = req.body;
   const labelRes = [];

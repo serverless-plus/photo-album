@@ -9,7 +9,7 @@ Serverless 相册应用，**上传照片可以智能识别，添加属性标签*
 
 ## 功能
 
-- [x] [Serverless Framework](https://github.com/serverless/serverless)
+- [x] [Serverless](https://github.com/serverless/serverless)
 - [x] [Taro](https://github.com/nervjs/taro)
 - [x] [Taro UI](https://github.com/NervJS/taro-ui)
 - [x] [Express](https://github.com/expressjs/express)
@@ -58,6 +58,14 @@ Serverless 相册应用，**上传照片可以智能识别，添加属性标签*
 $ git clone https://github.com/serverless-plus/photo-album.git
 ```
 
+或者通过 [serverless](https://github.com/serverless/serverless) 命令初始化：
+
+```bash
+$ sls init photo-album
+```
+
+> 注意：通过 `sls init` 命令初始化时，会自动安装项目的依赖（执行 `npm install`），时间可能比较长，请耐心等待。如果由于网络原因导致依赖安装失败，可以重新进入项目目录，执行 npm install 来安装依赖。
+
 ## 本地开发
 
 安装依赖:
@@ -72,7 +80,7 @@ $ npm install && cd client && npm install
 $ npm run docker:up
 ```
 
-复制 `.env.example` 为 `.env`，然后配置成个人账号:
+复制 `.env.example` 为 `.env`，然后配置成个人账号，主要需要配置（`TENCENT_APP_ID`、`TENCENT_SECRET_ID`、`TENCENT_SECRET_KEY`）:
 
 ```bash
 $ cp .env.example .env

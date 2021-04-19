@@ -9,8 +9,8 @@
   "scripts": {
     "dev:client": "cd client && npm run dev:h5",
     "dev:server": "NODE_ENV=development ts-node src/server.ts",
-    "deploy:server": "npm run build && sls deploy",
     "deploy:client": "sls deploy --target=./client",
+    "deploy:server": "npm run build && sls deploy",
     "deploy:layer": "sls deploy --target=./layer",
     "deploy:db": "sls deploy --target=./db",
     "deploy:vpc": "sls deploy --target=./vpc",
