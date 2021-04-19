@@ -7,6 +7,8 @@
 
 Serverless 相册应用，**上传照片可以智能识别，添加属性标签**。
 
+> 注意：目前并未添加用户登录逻辑，只是在用户第一次访问应用时，自动生成了一个 `uuid` 作为唯一标识，然后存放到了 LocalStorage 中，如果是发布到小程序，开发者可以自行添加登录逻辑。
+
 ## 功能
 
 - [x] [Serverless](https://github.com/serverless/serverless)
