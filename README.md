@@ -1,6 +1,6 @@
 # Serverless 相册
 
-[Online](https://photo-album-client-1303241281.cos-website.ap-shanghai.myqcloud.com)
+[在线体验](https://photo-album-client-1303241281.cos-website.ap-shanghai.myqcloud.com) (使用手机访问体验最佳)
 
 [![Build Status](https://github.com/serverless-plus/photo-album/workflows/Validate/badge.svg?branch=master)](https://github.com/serverless-plus/photo-album/actions?query=workflow:Validate+branch:master)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
@@ -30,6 +30,16 @@ Serverless 相册应用，**上传照片可以智能识别，添加属性标签*
 - [x] [Serverless MYSQL 数据库](https://console.cloud.tencent.com/cynosdb)
 - [x] [图像识别](https://console.cloud.tencent.com/tiia/detectlabel)
 
+## TODO
+
+- [x] 列表页
+- [x] 图片上传
+- [x] 图片自动添加标签
+- [x] 图片自动添加描述
+- [ ] 相册分类
+- [ ] 用户登录
+- [ ] 小程序授权登录（将单独使用 `weapp` 分支开发）
+
 ## 目录介绍
 
 ```
@@ -50,8 +60,7 @@ Serverless 相册应用，**上传照片可以智能识别，添加属性标签*
 ## 演示
 
 <center>
-<img src="./demo/index.png" width="360">
-<img src="./demo/upload.png" width="360">
+<img src="./demo/index.png" width="300"><img src="./demo/upload.png" width="300">
 </center>
 
 ## 使用
