@@ -25,7 +25,8 @@
     "lint": "eslint --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx .",
     "prettier": "prettier --check '**/*.{css,html,js,ts,json,md,yaml,yml}'",
-    "prettier:fix": "prettier --write '**/*.{css,html,js,ts,json,md,yaml,yml}'"
+    "prettier:fix": "prettier --write '**/*.{css,html,js,ts,json,md,yaml,yml}'",
+    "pub": "sls registry publish"
   },
   "engines": {
     "node": ">=10.18"
