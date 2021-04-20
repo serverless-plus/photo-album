@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import { AtImagePicker, AtMessage, AtNoticebar } from 'taro-ui';
+import { AtImagePicker, AtMessage, AtNoticebar, AtToast } from 'taro-ui';
 import { useMount, useLocalStorage } from 'react-use';
 
 import './index.less';
 
 import BaseButton from '../../components/button';
 import BackButton from '../../components/back-button';
+import UploadGuide from '../../components/guide/upload';
 
 import { uploadToCos, uploadImages } from '../../apis';
 
@@ -108,7 +109,11 @@ export default function Index() {
 
   return (
     <View className="upload-page">
+      <UploadGuide key='upload-guide'/>
+
       <AtMessage />
+
+      <AtToast isOpened={loading} duration={0} text={loading ? '上传中' : '上传成功'} icon={loading ? 'loading' : 'success'} status={loading ? 'loading' : 'success'}></AtToast>
 
       <AtNoticebar icon='volume-plus'>所选图片最大支持 5M</AtNoticebar>
 
