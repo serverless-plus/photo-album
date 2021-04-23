@@ -1,6 +1,6 @@
 # Serverless 相册
 
-[在线体验](https://photo-album-client-1303241281.cos-website.ap-shanghai.myqcloud.com) (使用手机访问体验最佳)
+[在线体验](https://photo.sls.plus) (使用手机访问体验最佳)
 
 [![Build Status](https://github.com/serverless-plus/photo-album/workflows/Validate/badge.svg?branch=master)](https://github.com/serverless-plus/photo-album/actions?query=workflow:Validate+branch:master)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
@@ -29,6 +29,8 @@ Serverless 相册应用，**上传照片可以智能识别，添加属性标签*
 - [x] [API 网关](https://console.cloud.tencent.com/apigateway)
 - [x] [Serverless MYSQL 数据库](https://console.cloud.tencent.com/cynosdb)
 - [x] [图像识别](https://console.cloud.tencent.com/tiia/detectlabel)
+
+> 注意：由于图片识别依赖腾讯云的 [图像标签](https://console.cloud.tencent.com/tiia/detectlabel) 服务，使用前请到控制台开通。
 
 ## TODO
 
@@ -125,6 +127,14 @@ VPC 创建成功后，再部署数据库
 $ npm run deploy:db
 ```
 
+### 创建存储桶
+
+创建用来存储相片的存储桶：
+
+```bash
+$ npm run deploy:cos
+```
+
 ### 部署层
 
 针对 Node.js 项目, 我们可以将 `node_modules` 文件夹部署到层，第一次将 `node_modules` 部署到层后，就不用再次重复部署了，这样可以打打减少代码上传体积。
@@ -134,14 +144,6 @@ $ npm run deploy:layer
 ```
 
 > **注意**： 层部署成功后，如果我们新增了模块依赖（改变了 `node_modules`）就需要再次执行部署层命令。
-
-### 创建存储桶
-
-创建用来存储相片的存储桶：
-
-```bash
-$ npm run deploy:cos
-```
 
 ### 部署服务端代码
 
