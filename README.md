@@ -62,7 +62,7 @@ Serverless 相册应用，**上传照片可以智能识别，添加属性标签*
 ## 演示
 
 <center>
-<img src="./demo/index.png" width="300"><img src="./demo/upload.png" width="300">
+<img src="./demo/1.jpg" width="600">
 </center>
 
 ## 使用
