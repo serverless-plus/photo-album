@@ -87,6 +87,12 @@ $ sls init photo-album
 $ npm install && cd client && npm install
 ```
 
+创建用来存储相片的存储桶：
+
+```bash
+$ npm run deploy:cos
+```
+
 本地启动 Docker 服务：
 
 ```bash
@@ -156,6 +162,8 @@ $ npm run deploy:server
 ```bash
 $ npm run deploy:client
 ```
+
+## 常见问题
 
 ## License
 
